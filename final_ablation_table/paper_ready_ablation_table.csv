@@ -1,0 +1,9 @@
+Experiment,Model / Strategy,TEST mean_fg pos-only,TEST WT pos-only,TEST TC pos-only,TEST ET pos-only,VAL mean_fg pos-only,Notes
+Step 7.1d,2D UNet + EMA + mixed sampling,0.805831,0.790243,0.739571,0.663476,0.817695,Best p_tumor=0.50 baseline before 2.5D context
+Step 7.3b,2D UNet + crop phase + LR reset,0.806602,0.783569,0.733833,0.653758,0.815381,Crop fine-tuning phase
+Step 8,GDNet-style integration,0.816351,0.782649,0.723506,0.635527,0.829642,GDNet architecture branch
+Step 8.1,GDNet + region-aware loss,0.81501,0.775203,0.713511,0.624326,0.829046,Region-aware loss added to GDNet branch
+Step 9,3-slice 2.5D UNet + EMA + mixed sampling,0.810913,0.797797,0.745872,0.669443,0.823376,Best single-seed model; 4 modalities × 3 slices = 12 channels
+Step 9.1,5-slice 2.5D UNet,0.822634,0.796063,0.743044,0.655886,0.831897,Wider context; 4 modalities × 5 slices = 20 channels
+Step 9.2,3-slice 2.5D + light postprocessing,0.813972,0.797262,0.745345,0.668367,0.826946,Connected-component cleanup; did not improve pos-only metrics
+Final multi-seed,3-slice 2.5D UNet + EMA + mixed sampling,0.819817 ± 0.000152,0.791043 ± 0.000060,0.735943 ± 0.003498,0.653616 ± 0.003631,0.832641 ± 0.000596,"Clean 2-seed robustness result, seed 43 and seed 44"
